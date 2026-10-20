@@ -47,3 +47,4 @@ table.list th{width:auto}
 table.list small{color:var(--muted);font-weight:400}
 table.list td:first-child{color:var(--muted)}
 @media (max-width:520px){table.list{font-size:14px}table.list th,table.list td{padding:8px 8px}}
+.note{border-inline-start:3px solid var(--gold);padding:8px 12px;background:var(--card);border-radius:8px;color:#cfd7ea}
