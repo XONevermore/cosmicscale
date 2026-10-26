@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Shorts Studio — UNIVERSESCALE upload tool</title>
+<style>
+  :root { color-scheme: light dark; --bg:#fff; --fg:#1a1d24; --muted:#5b6475; --accent:#b86b00; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#05060b; --fg:#eef1f7; --muted:#9aa4b8; --accent:#ffb347; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  h2 { font-size:19px; margin:32px 0 8px; color:var(--accent); }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Shorts Studio</h1>
+  <p class="muted">The private upload tool of the UNIVERSESCALE YouTube channel, by Sardor Urdushev</p>
+
+  <p>Shorts Studio is a small command-line tool that runs on one computer and is used only by the owner of the YouTube channel <a href="https://www.youtube.com/channel/UCgey6z-LA3OYOYpn0EZeGdA">UNIVERSESCALE</a>, with that channel only. It is not sold, not distributed and has no other users. It uses <strong>YouTube API Services</strong> (the YouTube Data API and the YouTube Analytics API).</p>
+
+  <h2>What it does</h2>
+  <ul>
+    <li><strong>Uploads and schedules our own videos</strong> with the title, description and tags we wrote (YouTube Data API: videos.insert, uploaded as private with a publish time).</li>
+    <li><strong>Lists our own uploads</strong> with their view counts (channels.list, playlistItems.list, videos.list).</li>
+    <li><strong>A daily check</strong> reads our own channel's YouTube Analytics (views and average percentage watched per video) and sends us a private Telegram message naming our videos that did poorly, so we can make a better version.</li>
+    <li><strong>Hides an old version</strong>: when a new version of one of our videos is public, it sets our old version to private (videos.update). Nothing is ever deleted.</li>
+  </ul>
+
+  <h2>Data</h2>
+  <p>It works only with our own channel's data, after the channel owner signs in with Google (OAuth). It never reads data about viewers, commenters or other channels. It keeps on our computer only the sign-in token, the IDs and schedule times of our own videos, and for at most 30 days their titles, view counts and percentage watched. Details: <a href="privacy.html">Privacy policy</a> (section "Shorts Studio").</p>
+
+  <h2>Terms and policies</h2>
+  <p>Using Shorts Studio means agreeing to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. Google's handling of data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Our own terms: <a href="shorts-studio-terms.html">Shorts Studio Terms of Service</a>.</p>
+
+  <h2>Revoking access</h2>
+  <p>The channel owner can remove Shorts Studio's access at any time on the <a href="https://security.google.com/settings/security/permissions">Google security settings page</a>. Stored records are then deleted within 30 days.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:sardorurdushev@gmail.com">sardorurdushev@gmail.com</a> · <a href="privacy.html">Privacy policy</a> · <a href="shorts-studio-terms.html">Terms of Service</a></p>
+</main>
+</body>
+</html>
