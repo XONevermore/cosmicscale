@@ -13,11 +13,19 @@
 <link rel="icon" href="../assets/icon-192.png">
 <script>
 // Phones go straight to their own store. ?stay keeps the page (for checking it).
+// The ad's utm_* tags go into the Play referrer, so Firebase credits each ad; without them it falls back to get_page.
 (function () {
-  var ua = navigator.userAgent || "", q = location.search;
-  if (/[?&]stay/.test(q)) return;
-  var play = "https://play.google.com/store/apps/details?id=com.mymax.cosmicscale&referrer=utm_source%3Dinstagram%26utm_medium%3Dpaid%26utm_campaign%3Dget_page";
+  var ua = navigator.userAgent || "", q = location.search, p = new URLSearchParams(q);
+  var tags = { utm_source: "instagram", utm_medium: "paid", utm_campaign: "get_page" };
+  ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function (k) { if (p.get(k)) tags[k] = p.get(k); });
+  var ref = Object.keys(tags).map(function (k) { return k + "=" + encodeURIComponent(tags[k]); }).join("&");
+  var play = "https://play.google.com/store/apps/details?id=com.mymax.cosmicscale&referrer=" + encodeURIComponent(ref);
   var ios = "https://apps.apple.com/app/id6818146074";
+  document.addEventListener("DOMContentLoaded", function () {
+    var a = document.querySelector("a.btn.android");
+    if (a) a.href = play;
+  });
+  if (/[?&]stay/.test(q)) return;
   if (/android/i.test(ua)) location.replace(play);
   else if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) location.replace(ios);
 })();
