@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Orrery: the solar system as it is today</title>
+<meta name="description" content="Orrery: every planet and moon exactly where it is today, ray-traced live on your phone. Fly 18 real space missions. Free on iPhone and Android.">
+<meta property="og:title" content="Orrery: 3D Solar System">
+<meta property="og:description" content="Every planet and moon where it is today. 18 real missions. Free on iPhone and Android.">
+<meta property="og:image" content="https://xonevermore.github.io/cosmicscale/orrery/og.jpg">
+<meta property="og:url" content="https://xonevermore.github.io/cosmicscale/orrery/">
+<meta name="robots" content="noindex">
+<link rel="icon" href="icon.png">
+<script>
+// Phones go straight to their own store. ?stay keeps the page (for checking it).
+// The ad's utm_* tags go into the Play referrer, so Firebase credits each ad; without them it falls back to get_page.
+(function () {
+  var ua = navigator.userAgent || "", q = location.search, p = new URLSearchParams(q);
+  var tags = { utm_source: "instagram", utm_medium: "paid", utm_campaign: "orrery_page" };
+  ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function (k) { if (p.get(k)) tags[k] = p.get(k); });
+  var ref = Object.keys(tags).map(function (k) { return k + "=" + encodeURIComponent(tags[k]); }).join("&");
+  var play = "https://play.google.com/store/apps/details?id=com.mymax.orrery&referrer=" + encodeURIComponent(ref);
+  var ios = "https://apps.apple.com/app/id6816714280";
+  document.addEventListener("DOMContentLoaded", function () {
+    var a = document.querySelector("a.btn.android");
+    if (a) a.href = play;
+  });
+  if (/[?&]stay/.test(q)) return;
+  if (/android/i.test(ua)) location.replace(play);
+  else if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) location.replace(ios);
+})();
+</script>
+<style>
+  :root { --bg: #05060b; --text: #f2f3f7; --muted: #a8adbd; --gold: #ffb547; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(ellipse at 50% -10%, #1b2140 0%, var(--bg) 60%); color: var(--text);
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; min-height: 100vh; }
+  main { max-width: 520px; margin: 0 auto; padding: 40px 16px 32px; text-align: center; }
+  .icon { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 10px 40px rgba(255,181,71,.25); }
+  h1 { font-size: 34px; letter-spacing: .02em; margin: 18px 0 6px; }
+  p.lead { color: var(--muted); margin: 0 0 26px; }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 16px 18px; margin: 0 0 12px;
+         border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 18px; }
+  .btn small { display: block; font-weight: 500; font-size: 12px; opacity: .75; text-align: left; }
+  .btn span { text-align: left; line-height: 1.15; }
+  .ios { background: #fff; color: #000; }
+  .android { background: var(--gold); color: #12131c; }
+  .btn svg { width: 28px; height: 28px; flex: none; }
+  .shots { display: flex; gap: 10px; margin: 28px 0 18px; }
+  .shots img { width: 33%; border-radius: 14px; border: 1px solid #23283a; }
+  ul { list-style: none; padding: 0; margin: 0 0 24px; color: var(--muted); font-size: 15px; }
+  li { margin: 4px 0; }
+  footer { color: #6c7286; font-size: 13px; }
+  footer a { color: #9aa0b4; }
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" src="icon.png" alt="Orrery app icon">
+  <h1>ORRERY</h1>
+  <p class="lead">The solar system as it is today. Free on iPhone and Android.</p>
+
+  <a class="btn ios" href="https://apps.apple.com/app/id6816714280">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.4-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>
+    <span><small>Download on the</small>App Store</span>
+  </a>
+  <a class="btn android" href="https://play.google.com/store/apps/details?id=com.mymax.orrery&amp;referrer=utm_source%3Dinstagram%26utm_medium%3Dpaid%26utm_campaign%3Dorrery_page">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.6c-.3.3-.4.7-.4 1.2v16.4c0 .5.1.9.4 1.2l9.3-9.4L4 2.6zm10.7 7.9L5.5 1.3c.4-.2 1-.2 1.6.1l10.8 6.2-3.2 2.9zm0 3l3.2 2.9L7.1 22.6c-.6.3-1.2.3-1.6.1l9.2-9.2zm4.4-4.9 3 1.7c.9.5.9 1.8 0 2.3l-3 1.7-3.4-3 3.4-2.7z"/></svg>
+    <span><small>Get it on</small>Google Play</span>
+  </a>
+
+  <div class="shots">
+    <img src="s8.jpg" alt="Orrery solar system">
+    <img src="s25.jpg" alt="Orrery screen">
+    <img src="s45.jpg" alt="Orrery screen">
+  </div>
+  <ul>
+    <li>Every planet and moon placed from NASA JPL data</li>
+    <li>Real surfaces, Saturn's rings, a living Sun</li>
+    <li>Fly 18 real missions: Voyager, Apollo 11, Artemis, Webb</li>
+    <li>Run time forward or back by centuries</li>
+  </ul>
+  <footer><a href="https://xonevermore.github.io/orrery-privacy/">Privacy</a></footer>
+</main>
+</body>
+</html>
